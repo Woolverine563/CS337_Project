@@ -78,5 +78,4 @@ class target_classifier(nn.Module):
         )
 
     def forward(self, emb):
-        emb_flat = emb.reshape(emb.shape[0], -1)
-        return self.classifier(emb_flat)
+        return self.classifier(emb)
