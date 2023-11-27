@@ -69,13 +69,14 @@ class TFC(nn.Module):
     
 
 class target_classifier(nn.Module):
-    def __init__(self, targets):
+    def __init__(self, targets, input_dim=2*128, hidden_dim=64 ):
         super(target_classifier, self).__init__()
-        self.logits = nn.Linear(2*128, 64)
-        self.logits_simple = nn.Linear(64, targets)
+        self.classifier = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.Sigmoid(),
+            nn.Linear(hidden_dim, targets)
+        )
 
     def forward(self, emb):
         emb_flat = emb.reshape(emb.shape[0], -1)
-        emb = torch.sigmoid(self.logits(emb_flat))
-        pred = self.logits_simple(emb)
-        return pred
+        return self.classifier(emb_flat)
