@@ -55,7 +55,7 @@ def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, t
     f1_scores = []
     for epoch in range(num_epochs):
 
-        valid_loss, data_finetune, labels_finetune, F1 = pretrain(model, model_optimizer, classifier, 
+        valid_loss, data_finetune, labels_finetune, F1 = finetune(model, model_optimizer, classifier, 
                                                                   classifier_optimizer, val_dl, tau, lam, mu)
 
         #storing best model
@@ -102,7 +102,7 @@ def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, t
     print('KNN Testing: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f | AUPRC=%.4f'%
             (knn_acc, precision, recall, F1, auc, prc))
 
-def pretrain(model, model_optimizer, classifier, classifier_optimizer, val_dl, tau, lam, mu):
+def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, tau, lam, mu):
         #model_finetune
         model.train()
         classifier.train()

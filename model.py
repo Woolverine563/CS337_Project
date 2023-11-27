@@ -69,12 +69,12 @@ class TFC(nn.Module):
     
 
 class target_classifier(nn.Module):
-    def __init__(self, targets, input_dim=2*128, hidden_dim=64 ):
+    def __init__(self, output_dim, input_dim=2*128, hidden_dim=64 ):
         super(target_classifier, self).__init__()
         self.classifier = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
             nn.Sigmoid(),
-            nn.Linear(hidden_dim, targets)
+            nn.Linear(hidden_dim, output_dim)
         )
 
     def forward(self, emb):
