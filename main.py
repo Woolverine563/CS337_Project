@@ -14,12 +14,13 @@ output_dim = 2
 TFC_model = TFC(encoder, projector)
 classifier = target_classifier(output_dim)
 
-training_mode = "pretrain"
+training_mode = "pretrain2"
 TFC_optimizer = torch.optim.Adam(TFC_model.parameters(), lr=3e-4, betas=(0.9, 0.99), weight_decay=3e-4)
 classifier_optimizer = torch.optim.Adam(classifier.parameters(), lr=3e-4, betas=(0.9, 0.99), weight_decay=3e-4)
 
+#experiment log dir is left
 if training_mode == "pretrain":
-    PreTrainer(TFC_model, TFC_optimizer, train_dl)
+    PreTrainer(TFC_model, TFC_optimizer, train_dl, experiment_log_dir)
 else:
     load_from = os.path.join(os.path.join('experiments_logs/finetunemodel/sleepedf2eplipsy_model.pt'))
     print("The loading file path", load_from)

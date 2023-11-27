@@ -2,12 +2,14 @@ import torch
 from torch import nn
 import numpy as np
 
-class ContrastiveLoss(nn.module):
+class ContrastiveLoss(nn.Module):
     def __init__(self, batch_size, tau):
+        super(ContrastiveLoss, self).__init__()
 
         self.batch_size = batch_size
         self.tau = tau
         self.cross_entropy_loss = nn.CrossEntropyLoss(reduction="sum")
+        self.cosine_similarity = nn.CosineSimilarity(dim = -1)
 
     def get_mask(self):
         diagonal = np.eye(2*self.batch_size)
@@ -18,14 +20,15 @@ class ContrastiveLoss(nn.module):
     def forward(self, x, y):
         #concat as a whole
         x_y = torch.cat((x, y), dim = 0)
-        
         #issues
         #get the similarities
-        similarity_matrix = nn.CosineSimilarity(dim = -1)(x_y, x_y)#Shayad se class banao, dekhna padega agar issue hue
+
+        similarity_matrix = self.cosine_similarity(x_y.unsqueeze(1), x_y.unsqueeze(0))#Shayad se class banao, dekhna padega agar issue hue
         #issue over
-        
+        # print(similarity_matrix.shape)
         #get the numerators
         xi_yi = torch.diag(similarity_matrix, self.batch_size)
+
         numerators = torch.cat((xi_yi, xi_yi)).view(2*self.batch_size, 1)
         #get the denominators
         mask = self.get_mask()
@@ -38,6 +41,3 @@ class ContrastiveLoss(nn.module):
         loss = self.cross_entropy_loss(logits, torch.zeros(2*self.batch_size).long())/2*self.batch_size
         #improvable over
         return loss
-
-
-

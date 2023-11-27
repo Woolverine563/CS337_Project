@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 import os
 import numpy as np
-from augmentations import DataTransform_FD, DataTransform_TD
+from augmentations1 import DataTransform_FD, DataTransform_TD
 import torch.fft as fft
 
 class Load_Dataset(Dataset):
@@ -11,8 +11,8 @@ class Load_Dataset(Dataset):
     def __init__(self, dataset, mode):
         super(Load_Dataset, self).__init__()
         self.training_mode = mode
-        X_train = dataset["samples"]
-        y_train = dataset["labels"]
+        X_train = dataset["samples"][:10*128]
+        y_train = dataset["labels"][:10*128]
         # shuffle
         data = list(zip(X_train, y_train))
         np.random.shuffle(data)

@@ -15,14 +15,16 @@ def one_hot_encoding(X):
     return b
 
 
-def PreTrainer(model, model_optimizer, train_dl, num_epochs = 40, tau = 0.2, lam = 1/6):
+def PreTrainer(model, model_optimizer, train_dl,experiment_log_dir, num_epochs = 40, tau = 0.2, lam = 1/6):
 
     for epoch in range(num_epochs):
         epoch_loss = []
         model.train()
         model_optimizer.zero_grad()
-        
+        # print(epoch)
+        # print(train_dl)
         for batch_num, (data_t, labels, aug_t, data_f, aug_f) in enumerate(train_dl):
+            # print("batch:", batch_num)
             data_t, aug_t = data_t.float(), aug_t.float()
             data_f, aug_f = data_f.float(), aug_f.float()
 
@@ -32,7 +34,6 @@ def PreTrainer(model, model_optimizer, train_dl, num_epochs = 40, tau = 0.2, lam
             
             #initilizing loss class
             loss_function = ContrastiveLoss(data_t.shape[0], tau)
-
             #calc_loss
             loss_time = loss_function(h_t, h_t_aug)
             loss_frq = loss_function(h_f, h_f_aug)
@@ -47,6 +48,12 @@ def PreTrainer(model, model_optimizer, train_dl, num_epochs = 40, tau = 0.2, lam
         
         #printing
         print(f"Epoch: {epoch}, loss = {torch.tensor(epoch_loss).mean().item()}")
+
+    os.makedirs(os.path.join(experiment_log_dir, "saved_models"), exist_ok=True)
+    chkpoint = {'model_state_dict': model.state_dict()}
+    torch.save(chkpoint, os.path.join(experiment_log_dir, "saved_models", f'ckp_last.pt'))
+    print('Pretrained model is stored at folder:{}'.format(experiment_log_dir+'saved_models'+'ckp_last.pt'))
+
             
 def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
 
@@ -125,7 +132,7 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             data_t, aug_t = data_t.float(), aug_t.float()
             data_f, aug_f = data_f.float(), aug_f.float()
             labels = labels.long()
-
+            # print(labels)
             #optimizers
             model_optimizer.zero_grad()
             classifier_optimizer.zero_grad()
@@ -147,15 +154,19 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             #format input to classifier
             #flattend directly
             #issue
-            input = torch.cat((z_t, z_f), dim = 0)
+            input = torch.cat((z_t, z_f), dim = 1)
             #issue over
+            # print(input.shape)
 
             #predictions
             preds = classifier(input)
-
+            input = input.reshape(input.shape[0], -1)
             #calculating final loss
-            loss = (1-mu-lam)*CE_loss(preds, labels)+ mu*loss_tfconsistency + lam*(loss_time + loss_frq)
-
+            # print(preds.shape)
+            # print(labels.shape)
+            loss_p = CE_loss(preds, labels)
+            loss = (1-mu-lam)*loss_p+ mu*loss_tfconsistency + lam*(loss_time + loss_frq)
+            # print("reached")
             accuracy = labels.eq(preds.detach().argmax(dim=1)).float().mean()
             onehot_label = nn.functional.one_hot(labels)
             pred_numpy = preds.detach().cpu().numpy()
@@ -211,8 +222,9 @@ def model_test(model, classifier, test_dl):
 
             """Add supervised classifier: 1) it's unique to finetuning. 2) this classifier will also be used in test"""
             h_t, z_t, h_f, z_f = model(data_t, data_f)
-            input = torch.cat((z_t, z_f), dim = 0)
+            input = torch.cat((z_t, z_f), dim = 1)
             predictions_test = classifier(input)
+            input = input.reshape(input.shape[0], -1)
             data_all.append(input)
 
             onehot_label = nn.functional.one_hot(labels)
@@ -248,4 +260,3 @@ def model_test(model, classifier, test_dl):
           % (acc*100, precision * 100, recall * 100, F1 * 100, total_auc*100, total_prc*100))
     data_all = torch.concat(tuple(data_all))
     return data_all, labels_numpy_all, performance
-            

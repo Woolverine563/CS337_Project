@@ -1,4 +1,3 @@
-import torch
 from torch import nn
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 
@@ -14,6 +13,7 @@ class EncoderParams:
 
 class Encoder(nn.Module):
     def __init__(self, params):
+        super(Encoder, self).__init__()
 
         self.encoder = TransformerEncoder(
             encoder_layer = TransformerEncoderLayer(
@@ -35,6 +35,8 @@ class ProjectorParams:
 
 class Projector(nn.Module):
     def __init__(self, params):
+        super(Projector, self).__init__()
+
         self.projector = nn.Sequential(
             nn.Linear(params.input_dim, params.hidden_dim),
             nn.BatchNorm1d(params.hidden_dim),
@@ -78,4 +80,4 @@ class target_classifier(nn.Module):
         )
 
     def forward(self, emb):
-        return self.classifier(emb)
+        return self.classifier(emb.reshape(emb.shape[0], -1))
