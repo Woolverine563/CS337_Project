@@ -1,0 +1,11 @@
+Subset size: 10, original loss
+Best Testing Performance: Acc=93.1316| Precision = 88.7220 | Recall = 90.0589 | F1 = 89.3674 | AUROC= 97.0099 | AUPRC=95.0263
+
+Subset size: 10, their loss
+Best Testing Performance: Acc=93.6930| Precision = 89.1102 | Recall = 91.9281 | F1 = 90.4176 | AUROC= 97.1698 | AUPRC=95.1144
+
+Subset size 30, their loss
+Best Testing Performance: Acc=91.3596| Precision = 88.8926 | Recall = 82.5935 | F1 = 85.2328 | AUROC= 93.9847 | AUPRC=91.8909
+
+Subset size 10, trainer_plus:
+Best Testing Performance: Acc=94.8947| Precision = 92.2768 | Recall = 91.5086 | F1 = 91.8859 | AUROC= 97.6412 | AUPRC=95.3874

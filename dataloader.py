@@ -30,7 +30,7 @@ class Load_Dataset(Dataset):
 
         """Subset for debugging"""
         if subset == True:
-            subset_size = target_dataset_size * 30 #30 #7 # 60*1
+            subset_size = target_dataset_size * 10 #30 #7 # 60*1
             """if the dimension is larger than 178, take the first 178 dimensions. If multiple channels, take the first channel"""
             X_train = X_train[:subset_size]
             y_train = y_train[:subset_size]

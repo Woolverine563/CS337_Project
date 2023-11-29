@@ -1,7 +1,11 @@
 
 from dataloader import generate_dataloaders
 from model import *
-from trainer import *
+import trainer
+import trainer_plus
+import torch
+import os
+import numpy as np
 import argparse
 from parameters import Parameter
 
@@ -19,6 +23,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--mode", type = str, required=True)
 parser.add_argument("--dataset", type=str, default="SleepEEG")
 parser.add_argument("--debug", type=bool, default=True)
+parser.add_argument("--model", type = str, default="TFC")
 
 args, unknown = parser.parse_known_args()
 
@@ -26,6 +31,7 @@ args, unknown = parser.parse_known_args()
 training_mode = args.mode
 dataset = args.dataset
 debug = args.debug
+model = args.model
 
 
 
@@ -62,13 +68,18 @@ classifier_optimizer = torch.optim.Adam(classifier.parameters(), lr=3e-4, betas=
 
 #experiment log dir is left
 if training_mode == "pretrain":
-    PreTrainer(TFC_model, TFC_optimizer, train_dl, experiment_log_dir)
+    trainer.PreTrainer(TFC_model, TFC_optimizer, train_dl, experiment_log_dir)
 elif training_mode == "fine_tune":
     load_from = f"saved_models/pretrain_seed_{SEED}/ckp_last.pt"
     print("The loading file path", load_from)
     chkpoint = torch.load(load_from)
     pretrained_dict = chkpoint["model_state_dict"]
     TFC_model.load_state_dict(pretrained_dict)
-    FineTuner(TFC_model, TFC_optimizer, valid_dl, classifier, classifier_optimizer, test_dl, "SleepEEG2"+parameters[dataset].name)
+    if model == 'TFC':
+        trainer.FineTuner(TFC_model, TFC_optimizer, valid_dl, classifier, classifier_optimizer, test_dl, "SleepEEG2"+parameters[dataset].name)
+    elif model == 'TAMPo':
+        trainer_plus.FineTuner(TFC_model, TFC_optimizer, valid_dl, classifier, classifier_optimizer, test_dl, "SleepEEG2"+parameters[dataset].name)
+    else:
+        print("model invalid, try again")
 else:
     print("invalid mode, try again")
