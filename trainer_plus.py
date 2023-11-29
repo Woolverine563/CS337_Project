@@ -226,6 +226,14 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
                 labels_2n[2 * i] = labels[i]
                 labels_2n[2 * i + 1] = labels[i]
 
+            similarities = get_sims(h_t_aug, h_t)
+            loss_ht_htaug = supervised_contrastive_loss(similarities, labels_2n, 0.2)
+            loss_ht_htaug = torch.div(loss_ht_htaug, size)
+
+            similarities = get_sims(h_f_aug, h_f)
+            loss_hf_hfaug = supervised_contrastive_loss(similarities, labels_2n, 0.2)
+            loss_hf_hfaug = torch.div(loss_hf_hfaug, size)
+
             similarities = get_sims(z_t, z_f)
             loss_zt_zf = supervised_contrastive_loss(similarities, labels_2n, 0.2)
             loss_zt_zf = torch.div(loss_zt_zf, size)
@@ -258,7 +266,10 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             loss_p = CE_loss(preds, labels)
             # loss = (1-mu-lam)*loss_p+ mu*loss_tfconsistency + lam*(loss_time + loss_frq)
             # print("reached")
-            loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
+            loss_time = loss_function(h_t, h_t_aug)
+            loss_frq = loss_function(h_f, h_f_aug)
+            loss = loss_zt_zf + loss_ztaug_zfaug + loss_p + loss_ht_htaug + loss_hf_hfaug
+            # loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
             accuracy = labels.eq(preds.detach().argmax(dim=1)).float().mean()
             onehot_label = nn.functional.one_hot(labels)
             pred_numpy = preds.detach().cpu().numpy()
