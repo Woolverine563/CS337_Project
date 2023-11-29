@@ -121,7 +121,7 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
         epoch_losses = []
 
         pred_arr = np.array([])
-        labels_numpy = np.array([])
+        # labels_numpy = np.array([])
         data_arr = np.array([])
         #might need to see this, no enumerate
         #issue
@@ -159,6 +159,7 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             # print(input.shape)
 
             #predictions
+            # print("pred shape:", input.shape)
             preds = classifier(input)
             input = input.reshape(input.shape[0], -1)
             #calculating final loss
@@ -187,7 +188,9 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             classifier_optimizer.step()
 
             pred_arr = np.append(pred_arr, pred_numpy)
-            labels_numpy = np.append(labels_numpy, labels.data.cpu().numpy())
+            labels_numpy = labels.data.cpu().numpy()
+            # labels_numpy = np.append(labels_numpy, labels.data.cpu().numpy())
+            # print("labels shape:", labels_numpy.shape)
             data_arr = np.append(data_arr, input.data.cpu().numpy())
         
         data_arr = data_arr.reshape([len(labels_numpy), -1])  # produce the learned embeddings

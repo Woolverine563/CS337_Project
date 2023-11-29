@@ -125,8 +125,8 @@ def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, t
     f1_scores = []
     for epoch in range(num_epochs):
 
-        model_optimizer.param_groups[0]['lr'] = 7.5*1e-5
-        classifier_optimizer.param_groups[0]['lr'] = 7.5*1e-5
+        model_optimizer.param_groups[0]['lr'] = 1e-4
+        classifier_optimizer.param_groups[0]['lr'] = 1e-4
 
         valid_loss, data_finetune, labels_finetune, F1 = finetune(model, model_optimizer, classifier, 
                                                                   classifier_optimizer, val_dl, tau, lam, mu)
@@ -268,8 +268,11 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             # print("reached")
             loss_time = loss_function(h_t, h_t_aug)
             loss_frq = loss_function(h_f, h_f_aug)
-            loss = loss_zt_zf + loss_ztaug_zfaug + loss_p + loss_ht_htaug + loss_hf_hfaug
-            # loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
+            # loss = loss_zt_zf + loss_ztaug_zfaug + 2*loss_p + loss_ht_htaug + loss_hf_hfaug
+            print(loss_p)
+            print(loss_zt_zf, loss_ztaug_zfaug)
+            loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
+            # loss = loss_p
             accuracy = labels.eq(preds.detach().argmax(dim=1)).float().mean()
             onehot_label = nn.functional.one_hot(labels)
             pred_numpy = preds.detach().cpu().numpy()
@@ -290,7 +293,7 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             classifier_optimizer.step()
 
             pred_arr = np.append(pred_arr, pred_numpy)
-            labels_numpy = np.append(labels_numpy, labels.data.cpu().numpy())
+            labels_numpy = labels.data.cpu().numpy()
             data_arr = np.append(data_arr, input.data.cpu().numpy())
         
         data_arr = data_arr.reshape([len(labels_numpy), -1])  # produce the learned embeddings

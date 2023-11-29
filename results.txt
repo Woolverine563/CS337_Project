@@ -1,0 +1,23 @@
+On Epilepsy Dataset:
+
+TS-TCC -
+Test loss      :0.3226   | Test Accuracy      : 0.8845
+{'Precision': 0.9322194020773251, 'Recall': 0.7098523785601113, 'F1': 0.761634549531506, 'AUROC': 0.935401961684121, 'AUPRC': 0.9281204442089119}
+
+TFC pretrained on SleepEEG dataset -
+Best Testing Performance: Acc=91.5351| Precision = 87.1358 | Recall = 85.7363 | F1 = 86.4095 | AUROC= 94.3799 | AUPRC=91.7440
+
+TAMPo pretrained on SleepEEG dataset -
+Best Testing Performance: Acc=92.4912| Precision = 91.6559 | Recall = 83.7764 | F1 = 86.9824 | AUROC= 95.4683 | AUPRC=93.8754
+
+On Gesture Dataset:
+
+TS-TCC -
+Test loss      :1.1050   | Test Accuracy      : 0.6719
+{'Precision': 0.6546420491273433, 'Recall': 0.6666666666666666, 'F1': 0.6324400499311256, 'AUROC': 0.8869047619047619, 'AUPRC': 0.7106367452796309}
+
+TFC pretrained on SleepEEG dataset -
+Best Testing Performance: Acc=46.6667| Precision = 44.4097 | Recall = 46.6667 | F1 = 43.4441 | AUROC= 84.3331 | AUPRC=57.3741
+
+TAMPo pretrained on SleepEEG dataset -
+Best Testing Performance: Acc=62.5000| Precision = 58.6583 | Recall = 62.5000 | F1 = 58.1527 | AUROC= 88.7356 | AUPRC=67.4861

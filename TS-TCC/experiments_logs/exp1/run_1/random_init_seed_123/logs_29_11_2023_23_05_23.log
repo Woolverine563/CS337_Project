@@ -1,0 +1,494 @@
+=============================================
+Dataset: Epilepsy
+Method:  TS-TCC
+Mode:    random_init
+=============================================
+Data loaded ...
+Training started ....
+
+Epoch : 1
+Train Loss     : 0.7206	 | 	Train Accuracy     : 0.5208
+Valid Loss     : 0.6925	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.6441860465116279, 'Recall': 0.5541958041958042, 'F1': 0.4521091811414392, 'AUROC': 0.6328671328671329, 'AUPRC': 0.6598556352807466}
+{'Precision': 0.47435897435897434, 'Recall': 0.48333333333333334, 'F1': 0.45893719806763283, 'AUROC': 0.5, 'AUPRC': 0.5819787157287157}
+
+Epoch : 2
+Train Loss     : 0.5786	 | 	Train Accuracy     : 0.7292
+Valid Loss     : 0.7073	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.7848484848484849, 'Recall': 0.7465034965034965, 'F1': 0.7232815964523281, 'AUROC': 0.8068181818181819, 'AUPRC': 0.8326671039723214}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.5083333333333333, 'AUPRC': 0.5811204073704074}
+
+Epoch : 3
+Train Loss     : 0.6350	 | 	Train Accuracy     : 0.6042
+Valid Loss     : 0.7305	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.6365546218487395, 'Recall': 0.6130434782608696, 'F1': 0.5897435897435899, 'AUROC': 0.662608695652174, 'AUPRC': 0.6908459315199627}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.43333333333333335, 'AUPRC': 0.5391075591075591}
+
+Epoch : 4
+Train Loss     : 0.6218	 | 	Train Accuracy     : 0.6458
+Valid Loss     : 0.7489	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.7875, 'Recall': 0.66, 'F1': 0.6075036075036075, 'AUROC': 0.7069565217391305, 'AUPRC': 0.741919231558491}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.425, 'AUPRC': 0.5387867687867687}
+
+Epoch : 5
+Train Loss     : 0.5434	 | 	Train Accuracy     : 0.7292
+Valid Loss     : 0.7640	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8142857142857143, 'Recall': 0.75, 'F1': 0.7192982456140351, 'AUROC': 0.7762237762237763, 'AUPRC': 0.7962910739565213}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.4833333333333333, 'AUPRC': 0.5740106190106189}
+
+Epoch : 6
+Train Loss     : 0.5124	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.7755	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8330434782608696, 'Recall': 0.8330434782608696, 'F1': 0.8330434782608696, 'AUROC': 0.8347826086956521, 'AUPRC': 0.8372035786450718}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.575, 'AUPRC': 0.6230681818181818}
+
+Epoch : 7
+Train Loss     : 0.4882	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.7954	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8121212121212121, 'Recall': 0.7724867724867726, 'F1': 0.7777777777777778, 'AUROC': 0.8589065255731922, 'AUPRC': 0.8453388951531189}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.6333333333333333, 'AUPRC': 0.6644859307359308}
+
+Epoch : 8
+Train Loss     : 0.4824	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8265	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.852994555353902, 'Recall': 0.8382608695652174, 'F1': 0.8321678321678321, 'AUROC': 0.9034782608695653, 'AUPRC': 0.9155807144882261}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.6416666666666666, 'AUPRC': 0.6638293650793651}
+
+Epoch : 9
+Train Loss     : 0.4827	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8692	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8176043557168784, 'Recall': 0.8059440559440559, 'F1': 0.8084257206208425, 'AUROC': 0.8566433566433567, 'AUPRC': 0.8865802880971791}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.6916666666666667, 'AUPRC': 0.6935421522921523}
+
+Epoch : 10
+Train Loss     : 0.5257	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.9219	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8266787658802177, 'Recall': 0.8125, 'F1': 0.8104431768319438, 'AUROC': 0.759548611111111, 'AUPRC': 0.7551854411259944}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.7583333333333333, 'AUPRC': 0.7267255892255893}
+
+Epoch : 11
+Train Loss     : 0.4468	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.9880	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8, 'Recall': 0.7832167832167831, 'F1': 0.7857142857142857, 'AUROC': 0.8732517482517483, 'AUPRC': 0.8851046818361534}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.875, 'AUPRC': 0.8597763347763347}
+
+Epoch : 12
+Train Loss     : 0.4605	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 1.0495	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.84375, 'Recall': 0.8060869565217391, 'F1': 0.8056680161943319, 'AUROC': 0.8426086956521739, 'AUPRC': 0.8358065800564759}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.9, 'AUPRC': 0.903676184926185}
+
+Epoch : 13
+Train Loss     : 0.4493	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 1.0516	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8448275862068966, 'Recall': 0.8392857142857143, 'F1': 0.8124185844550587, 'AUROC': 0.925, 'AUPRC': 0.8855405617128116}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.9, 'AUPRC': 0.903676184926185}
+
+Epoch : 14
+Train Loss     : 0.4821	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 1.0394	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8484848484848485, 'Recall': 0.8, 'F1': 0.7857142857142857, 'AUROC': 0.8356521739130434, 'AUPRC': 0.8266600464687324}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.9083333333333333, 'AUPRC': 0.9203428515928516}
+
+Epoch : 15
+Train Loss     : 0.4435	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 1.0230	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8666666666666667, 'Recall': 0.8461538461538461, 'F1': 0.8321678321678321, 'AUROC': 0.8540209790209791, 'AUPRC': 0.8822708715483387}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.9166666666666666, 'AUPRC': 0.9235479797979798}
+
+Epoch : 16
+Train Loss     : 0.4286	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.9937	 | 	Valid Accuracy     : 0.3750
+{'Precision': 0.8787878787878788, 'Recall': 0.8260869565217391, 'F1': 0.8257713248638838, 'AUROC': 0.8930434782608696, 'AUPRC': 0.8938401762389725}
+{'Precision': 0.1875, 'Recall': 0.5, 'F1': 0.2727272727272727, 'AUROC': 0.9166666666666667, 'AUPRC': 0.9220238095238096}
+
+Epoch : 17
+Train Loss     : 0.4910	 | 	Train Accuracy     : 0.7708
+Valid Loss     : 0.9670	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8092979127134725, 'Recall': 0.784965034965035, 'F1': 0.7683194383501537, 'AUROC': 0.8645104895104896, 'AUPRC': 0.8737051419372056}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.9166666666666667, 'AUPRC': 0.9298611111111111}
+
+Epoch : 18
+Train Loss     : 0.4553	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.9361	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8428571428571429, 'Recall': 0.8333333333333333, 'F1': 0.8321678321678322, 'AUROC': 0.8854166666666667, 'AUPRC': 0.8545067640067177}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.9166666666666667, 'AUPRC': 0.9298611111111111}
+
+Epoch : 19
+Train Loss     : 0.4066	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.9176	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9193548387096775, 'Recall': 0.8863636363636364, 'F1': 0.8920377867746289, 'AUROC': 0.9213286713286715, 'AUPRC': 0.922023424239298}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.925, 'AUPRC': 0.9465277777777779}
+
+Epoch : 20
+Train Loss     : 0.4556	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8970	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9193548387096775, 'Recall': 0.8863636363636364, 'F1': 0.8920377867746289, 'AUROC': 0.8793706293706294, 'AUPRC': 0.8780179218713831}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.9333333333333333, 'AUPRC': 0.9604166666666667}
+
+Epoch : 21
+Train Loss     : 0.3979	 | 	Train Accuracy     : 0.9167
+Valid Loss     : 0.8785	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9310344827586207, 'Recall': 0.9130434782608696, 'F1': 0.9153439153439153, 'AUROC': 0.9199999999999999, 'AUPRC': 0.899906405034101}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.9416666666666667, 'AUPRC': 0.9693452380952381}
+
+Epoch : 22
+Train Loss     : 0.4425	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8706	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8636363636363636, 'Recall': 0.8125, 'F1': 0.805668016194332, 'AUROC': 0.8411458333333335, 'AUPRC': 0.8260906794196854}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 23
+Train Loss     : 0.4129	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8579	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8928571428571428, 'Recall': 0.8846153846153846, 'F1': 0.8747826086956523, 'AUROC': 0.9274475524475525, 'AUPRC': 0.9135019292103401}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 24
+Train Loss     : 0.4333	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8426	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8439201451905627, 'Recall': 0.8295652173913044, 'F1': 0.8306878306878307, 'AUROC': 0.893913043478261, 'AUPRC': 0.8949066440620816}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 25
+Train Loss     : 0.4515	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8335	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.828125, 'Recall': 0.7962962962962963, 'F1': 0.8021071919377003, 'AUROC': 0.847442680776014, 'AUPRC': 0.8556504189611875}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 26
+Train Loss     : 0.4024	 | 	Train Accuracy     : 0.9167
+Valid Loss     : 0.8294	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9310344827586207, 'Recall': 0.9130434782608696, 'F1': 0.9153439153439153, 'AUROC': 0.8904347826086957, 'AUPRC': 0.8899994414255616}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 27
+Train Loss     : 0.4166	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8282	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8888888888888888, 'Recall': 0.8888888888888888, 'F1': 0.8750000000000001, 'AUROC': 0.9021164021164021, 'AUPRC': 0.896459598760752}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 28
+Train Loss     : 0.4134	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8247	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9032258064516129, 'Recall': 0.8695652173913043, 'F1': 0.8714285714285714, 'AUROC': 0.9199999999999999, 'AUPRC': 0.921096326263477}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 29
+Train Loss     : 0.4217	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8225	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8738140417457305, 'Recall': 0.8444055944055944, 'F1': 0.8488529014844803, 'AUROC': 0.881993006993007, 'AUPRC': 0.8896588149573059}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 30
+Train Loss     : 0.4358	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8209	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8835978835978835, 'Recall': 0.8782608695652174, 'F1': 0.8747826086956523, 'AUROC': 0.8895652173913045, 'AUPRC': 0.896029426188515}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 31
+Train Loss     : 0.4523	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8169	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8121442125237192, 'Recall': 0.7860869565217392, 'F1': 0.7857142857142857, 'AUROC': 0.8426086956521739, 'AUPRC': 0.8600039806071342}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 32
+Train Loss     : 0.4319	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8193	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.84375, 'Recall': 0.8076923076923077, 'F1': 0.7883597883597884, 'AUROC': 0.8977272727272727, 'AUPRC': 0.8875186243194891}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 33
+Train Loss     : 0.4051	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8187	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9137931034482758, 'Recall': 0.8958333333333333, 'F1': 0.8946906537955244, 'AUROC': 0.9036458333333334, 'AUPRC': 0.9073036621056823}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 34
+Train Loss     : 0.4331	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8202	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8870967741935484, 'Recall': 0.8541666666666667, 'F1': 0.8509977827050997, 'AUROC': 0.8723958333333334, 'AUPRC': 0.8787938638389127}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 35
+Train Loss     : 0.4365	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8218	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8928571428571428, 'Recall': 0.8846153846153846, 'F1': 0.8747826086956523, 'AUROC': 0.8793706293706294, 'AUPRC': 0.8612893584415519}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 36
+Train Loss     : 0.4424	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8099	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8444444444444444, 'Recall': 0.8251748251748252, 'F1': 0.8285714285714285, 'AUROC': 0.8854895104895104, 'AUPRC': 0.857697101958605}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 37
+Train Loss     : 0.4466	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8140	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8709677419354839, 'Recall': 0.8400000000000001, 'F1': 0.8306878306878307, 'AUROC': 0.8791304347826088, 'AUPRC': 0.8809628162391752}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 38
+Train Loss     : 0.4173	 | 	Train Accuracy     : 0.9167
+Valid Loss     : 0.8132	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9285714285714286, 'Recall': 0.9166666666666667, 'F1': 0.916083916083916, 'AUROC': 0.8845486111111112, 'AUPRC': 0.9039059351066561}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 39
+Train Loss     : 0.4230	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8166	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8415559772296015, 'Recall': 0.8125, 'F1': 0.8084257206208425, 'AUROC': 0.8984375, 'AUPRC': 0.9187937154931218}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 40
+Train Loss     : 0.4176	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8125	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.889943074003795, 'Recall': 0.8624338624338623, 'F1': 0.8693284936479129, 'AUROC': 0.8871252204585538, 'AUPRC': 0.8804396227551967}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 41
+Train Loss     : 0.4352	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8079	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8722222222222222, 'Recall': 0.8495652173913043, 'F1': 0.8509977827050998, 'AUROC': 0.9034782608695652, 'AUPRC': 0.9148566153992623}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 42
+Train Loss     : 0.4238	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8167	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.85, 'Recall': 0.8426573426573427, 'F1': 0.8330434782608696, 'AUROC': 0.9055944055944056, 'AUPRC': 0.8654796573847985}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 43
+Train Loss     : 0.3956	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8205	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9, 'Recall': 0.875, 'F1': 0.873015873015873, 'AUROC': 0.9045138888888888, 'AUPRC': 0.8934668505752373}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 44
+Train Loss     : 0.4570	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8253	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8388888888888888, 'Recall': 0.8182608695652174, 'F1': 0.8104431768319439, 'AUROC': 0.8695652173913044, 'AUPRC': 0.8507603811101305}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 45
+Train Loss     : 0.3917	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8253	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9107142857142857, 'Recall': 0.9, 'F1': 0.8954248366013072, 'AUROC': 0.9304347826086956, 'AUPRC': 0.9242899593158387}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 46
+Train Loss     : 0.4222	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8259	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8833333333333333, 'Recall': 0.86, 'F1': 0.8525669153137341, 'AUROC': 0.9026086956521739, 'AUPRC': 0.9132016527442799}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 47
+Train Loss     : 0.3953	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8235	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8857142857142857, 'Recall': 0.875, 'F1': 0.8741258741258742, 'AUROC': 0.8940972222222222, 'AUPRC': 0.9259547036694384}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 48
+Train Loss     : 0.4032	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8196	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8722222222222222, 'Recall': 0.8495652173913043, 'F1': 0.8509977827050998, 'AUROC': 0.9043478260869564, 'AUPRC': 0.909714846050381}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 49
+Train Loss     : 0.4273	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8233	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8412698412698413, 'Recall': 0.8365217391304347, 'F1': 0.8330434782608696, 'AUROC': 0.8704347826086957, 'AUPRC': 0.8767031892091259}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 50
+Train Loss     : 0.4715	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8250	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8484848484848485, 'Recall': 0.8, 'F1': 0.7857142857142857, 'AUROC': 0.8547826086956523, 'AUPRC': 0.8347535138439799}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 51
+Train Loss     : 0.4292	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8177	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9032258064516129, 'Recall': 0.8695652173913043, 'F1': 0.8714285714285714, 'AUROC': 0.8973913043478261, 'AUPRC': 0.9067848120092841}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 52
+Train Loss     : 0.4652	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8167	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.825, 'Recall': 0.8165217391304347, 'F1': 0.8117647058823528, 'AUROC': 0.8443478260869566, 'AUPRC': 0.8729830720928738}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 53
+Train Loss     : 0.4836	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8044	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.811304347826087, 'Recall': 0.8129370629370629, 'F1': 0.8117647058823529, 'AUROC': 0.8435314685314685, 'AUPRC': 0.8206329323462607}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 54
+Train Loss     : 0.4139	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8107	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8874773139745916, 'Recall': 0.8713043478260869, 'F1': 0.873015873015873, 'AUROC': 0.8843478260869566, 'AUPRC': 0.8867897952302676}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 55
+Train Loss     : 0.3923	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8154	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9047186932849365, 'Recall': 0.8898601398601399, 'F1': 0.893569844789357, 'AUROC': 0.930944055944056, 'AUPRC': 0.9377288568843754}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 56
+Train Loss     : 0.4523	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8168	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8709677419354839, 'Recall': 0.8400000000000001, 'F1': 0.8306878306878307, 'AUROC': 0.8504347826086956, 'AUPRC': 0.8126722033527276}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 57
+Train Loss     : 0.4104	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8225	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9137931034482758, 'Recall': 0.8958333333333333, 'F1': 0.8946906537955244, 'AUROC': 0.9296875, 'AUPRC': 0.9305856268790309}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 58
+Train Loss     : 0.4668	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8230	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8222222222222222, 'Recall': 0.8041958041958042, 'F1': 0.7902097902097902, 'AUROC': 0.8618881118881119, 'AUPRC': 0.8432277630100569}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 59
+Train Loss     : 0.4279	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8165	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8702359346642468, 'Recall': 0.8541666666666667, 'F1': 0.8525669153137341, 'AUROC': 0.8932291666666667, 'AUPRC': 0.8880675439262382}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 60
+Train Loss     : 0.3983	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8162	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8722222222222222, 'Recall': 0.8495652173913043, 'F1': 0.8509977827050998, 'AUROC': 0.9104347826086956, 'AUPRC': 0.9183816834223475}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 61
+Train Loss     : 0.4545	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8131	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9032258064516129, 'Recall': 0.8695652173913043, 'F1': 0.8714285714285714, 'AUROC': 0.8408695652173913, 'AUPRC': 0.8481358629048038}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 62
+Train Loss     : 0.4270	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8065	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9, 'Recall': 0.875, 'F1': 0.873015873015873, 'AUROC': 0.8914930555555556, 'AUPRC': 0.8708598773208955}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 63
+Train Loss     : 0.4159	 | 	Train Accuracy     : 0.8125
+Valid Loss     : 0.8028	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8282732447817837, 'Recall': 0.8024475524475525, 'F1': 0.8056680161943319, 'AUROC': 0.8907342657342657, 'AUPRC': 0.9155425624039755}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 64
+Train Loss     : 0.4367	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8139	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8583916083916083, 'Recall': 0.8565217391304347, 'F1': 0.8541033434650457, 'AUROC': 0.8478260869565217, 'AUPRC': 0.8046381516520127}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 65
+Train Loss     : 0.4052	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8207	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8618881118881119, 'Recall': 0.8650793650793651, 'F1': 0.8541033434650456, 'AUROC': 0.9109347442680776, 'AUPRC': 0.8952618640763703}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 66
+Train Loss     : 0.3804	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8191	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8928571428571428, 'Recall': 0.8846153846153846, 'F1': 0.8747826086956523, 'AUROC': 0.9519230769230769, 'AUPRC': 0.9567968584208153}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 67
+Train Loss     : 0.3623	 | 	Train Accuracy     : 0.9167
+Valid Loss     : 0.8281	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9230769230769231, 'Recall': 0.9230769230769231, 'F1': 0.9166666666666666, 'AUROC': 0.94493006993007, 'AUPRC': 0.9456706784521842}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 68
+Train Loss     : 0.4424	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8328	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8702359346642468, 'Recall': 0.8541666666666667, 'F1': 0.8525669153137341, 'AUROC': 0.8680555555555556, 'AUPRC': 0.8623583322391778}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 69
+Train Loss     : 0.4401	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8299	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.8125, 'Recall': 0.7797202797202798, 'F1': 0.7822141560798548, 'AUROC': 0.8583916083916083, 'AUPRC': 0.8747034093590207}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 70
+Train Loss     : 0.4239	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8253	 | 	Valid Accuracy     : 0.5000
+{'Precision': 0.9137931034482758, 'Recall': 0.8958333333333333, 'F1': 0.8946906537955244, 'AUROC': 0.9296875, 'AUPRC': 0.9429441540905482}
+{'Precision': 0.7142857142857143, 'Recall': 0.6, 'F1': 0.4666666666666667, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 71
+Train Loss     : 0.4169	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8187	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.90625, 'Recall': 0.8636363636363636, 'F1': 0.8693284936479129, 'AUROC': 0.8697552447552448, 'AUPRC': 0.8861968284315642}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 72
+Train Loss     : 0.4254	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8120	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9193548387096775, 'Recall': 0.8863636363636364, 'F1': 0.8920377867746289, 'AUROC': 0.8767482517482518, 'AUPRC': 0.8859965067164213}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 73
+Train Loss     : 0.3786	 | 	Train Accuracy     : 0.8958
+Valid Loss     : 0.8079	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.9137931034482758, 'Recall': 0.8958333333333333, 'F1': 0.8946906537955244, 'AUROC': 0.953125, 'AUPRC': 0.9557127228175304}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 74
+Train Loss     : 0.4373	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8044	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8428571428571429, 'Recall': 0.8333333333333333, 'F1': 0.8321678321678322, 'AUROC': 0.8793402777777777, 'AUPRC': 0.9025177808011259}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 75
+Train Loss     : 0.4454	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8159	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8709677419354839, 'Recall': 0.8400000000000001, 'F1': 0.8306878306878307, 'AUROC': 0.8573913043478262, 'AUPRC': 0.8610471447424737}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 76
+Train Loss     : 0.4853	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8048	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8121442125237192, 'Recall': 0.7860869565217392, 'F1': 0.7857142857142857, 'AUROC': 0.8339130434782609, 'AUPRC': 0.8720482324342294}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 77
+Train Loss     : 0.4505	 | 	Train Accuracy     : 0.8542
+Valid Loss     : 0.8075	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8607142857142858, 'Recall': 0.851304347826087, 'F1': 0.8525669153137341, 'AUROC': 0.8747826086956523, 'AUPRC': 0.8676815867877584}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 78
+Train Loss     : 0.4213	 | 	Train Accuracy     : 0.8750
+Valid Loss     : 0.8099	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8857142857142857, 'Recall': 0.875, 'F1': 0.8741258741258742, 'AUROC': 0.9036458333333333, 'AUPRC': 0.9047806378069732}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 79
+Train Loss     : 0.4404	 | 	Train Accuracy     : 0.7917
+Valid Loss     : 0.8179	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.8071428571428572, 'Recall': 0.8006993006993006, 'F1': 0.7913043478260869, 'AUROC': 0.8802447552447552, 'AUPRC': 0.8753904296367732}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Epoch : 80
+Train Loss     : 0.4265	 | 	Train Accuracy     : 0.8333
+Valid Loss     : 0.8119	 | 	Valid Accuracy     : 0.5625
+{'Precision': 0.857685009487666, 'Recall': 0.8278260869565217, 'F1': 0.8285714285714285, 'AUROC': 0.8869565217391304, 'AUPRC': 0.9012048050262349}
+{'Precision': 0.7307692307692308, 'Recall': 0.65, 'F1': 0.5465587044534412, 'AUROC': 0.95, 'AUPRC': 0.98125}
+
+Evaluate on the Test set:
+Test loss      :0.3226	 | Test Accuracy      : 0.8845
+{'Precision': 0.9322194020773251, 'Recall': 0.7098523785601113, 'F1': 0.761634549531506, 'AUROC': 0.935401961684121, 'AUPRC': 0.9281204442089119}
+
+################## Training is Done! #########################
+Training time is : 0:00:15.453716

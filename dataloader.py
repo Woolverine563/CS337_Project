@@ -27,28 +27,24 @@ class Load_Dataset(Dataset):
 
         """Align the TS length between source and target datasets"""
         X_train = X_train[:, :1, :178] # take the first 178 samples
-
-        """Subset for debugging"""
+        
         if subset == True:
-            subset_size = target_dataset_size * 10 #30 #7 # 60*1
+            subset_size = target_dataset_size * 30
             """if the dimension is larger than 178, take the first 178 dimensions. If multiple channels, take the first channel"""
             X_train = X_train[:subset_size]
             y_train = y_train[:subset_size]
             # print('Using subset for debugging, the datasize is:', y_train.shape[0])
-
         if isinstance(X_train, np.ndarray):
             self.x_data = torch.from_numpy(X_train)
             self.y_data = torch.from_numpy(y_train).long()
         else:
             self.x_data = X_train
             self.y_data = y_train
-
         """Transfer x_data to Frequency Domain. If use fft.fft, the output has the same shape; if use fft.rfft, 
         the output shape is half of the time window."""
         
         self.x_data_f = fft.fft(self.x_data).abs()
         self.len = X_train.shape[0]
-
         """Augmentation"""
         if self.training_mode == "pre_train":  # no need to apply Augmentations in other modes
             self.aug1 = DataTransform_TD(self.x_data, jitter_ratio = 2)
@@ -84,7 +80,6 @@ def generate_dataloaders(data_path, mode, batch_size, target_batch_size, subset 
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=target_batch_size,
                                               shuffle=True, drop_last=True,
                                               num_workers=0)
-
     return train_loader, val_loader, test_loader
 
     
