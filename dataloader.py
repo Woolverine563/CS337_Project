@@ -3,12 +3,12 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 import os
 import numpy as np
-from augmentations import DataTransform_FD, DataTransform_TD
+from augmentations1 import DataTransform_FD, DataTransform_TD
 import torch.fft as fft
 
 class Load_Dataset(Dataset):
     # Initialize your data, download, etc.
-    def __init__(self, dataset, mode):
+    def __init__(self, dataset, mode, target_dataset_size, subset = True):
         super(Load_Dataset, self).__init__()
         self.training_mode = mode
         X_train = dataset["samples"][:10*128]
@@ -28,10 +28,21 @@ class Load_Dataset(Dataset):
         self.x_data_f = fft.fft(self.x_data).abs()
         self.len = X_train.shape[0]
 
+        """Align the TS length between source and target datasets"""
+        X_train = X_train[:, :1, :178] # take the first 178 samples
+
+        """Subset for debugging"""
+        if subset == True:
+            subset_size = target_dataset_size * 10 #30 #7 # 60*1
+            """if the dimension is larger than 178, take the first 178 dimensions. If multiple channels, take the first channel"""
+            X_train = X_train[:subset_size]
+            y_train = y_train[:subset_size]
+            # print('Using subset for debugging, the datasize is:', y_train.shape[0])
+
         """Augmentation"""
         if self.training_mode == "pre_train":  # no need to apply Augmentations in other modes
-            self.aug1 = DataTransform_TD(self.x_data, config)
-            self.aug1_f = DataTransform_FD(self.x_data_f, config) # [7360, 1, 90]
+            self.aug1 = DataTransform_TD(self.x_data, jitter_ratio = 2)
+            self.aug1_f = DataTransform_FD(self.x_data_f) # [7360, 1, 90]
 
     def __getitem__(self, index):
         if self.training_mode == "pre_train":
@@ -45,22 +56,22 @@ class Load_Dataset(Dataset):
         return self.len
 
 
-def generate_dataloaders(data_path, mode, batch_size):
+def generate_dataloaders(data_path, mode, batch_size, target_batch_size, subset = True):
     train_dataset = torch.load(os.path.join(data_path, "train.pt"))
     val_dataset = torch.load(os.path.join(data_path, "val.pt")) 
     test_dataset = torch.load(os.path.join(data_path, "test.pt")) 
 
-    train_dataset = Load_Dataset(train_dataset, mode)
-    val_dataset = Load_Dataset(val_dataset, mode)
-    test_dataset = Load_Dataset(test_dataset, mode)
+    train_dataset = Load_Dataset(train_dataset, mode, target_dataset_size=batch_size, subset=subset)
+    val_dataset = Load_Dataset(val_dataset, mode, target_dataset_size=target_batch_size, subset=subset)
+    test_dataset = Load_Dataset(test_dataset, mode, target_dataset_size=target_batch_size, subset=False)
 
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size,
                                                shuffle=True, drop_last=True,
                                                num_workers=0)
-    val_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=batch_size,
+    val_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=target_batch_size,
                                                shuffle=True, drop_last=True,
                                                num_workers=0)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size,
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=target_batch_size,
                                               shuffle=True, drop_last=True,
                                               num_workers=0)
 
