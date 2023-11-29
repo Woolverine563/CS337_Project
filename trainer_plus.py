@@ -258,7 +258,7 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
             loss_p = CE_loss(preds, labels)
             # loss = (1-mu-lam)*loss_p+ mu*loss_tfconsistency + lam*(loss_time + loss_frq)
             # print("reached")
-            loss = loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
+            loss = loss_zt_zf + loss_ztaug_zfaug + loss_p
             accuracy = labels.eq(preds.detach().argmax(dim=1)).float().mean()
             onehot_label = nn.functional.one_hot(labels)
             pred_numpy = preds.detach().cpu().numpy()
