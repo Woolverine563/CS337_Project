@@ -50,8 +50,8 @@ def PreTrainer(model, model_optimizer, train_dl,experiment_log_dir, num_epochs =
         print(f"Epoch: {epoch}, loss = {torch.tensor(epoch_loss).mean().item()}")
 
     chkpoint = {'model_state_dict': model.state_dict()}
-    torch.save(chkpoint, os.path.join(experiment_log_dir, "saved_models", 'ckp_last.pt'))
-    print('Pretrained model is stored at folder:{}'.format(experiment_log_dir+'saved_models'+'ckp_last.pt'))
+    torch.save(chkpoint, os.path.join(experiment_log_dir, 'ckp_last.pt'))
+    print('Pretrained model is stored at folder:{}'.format(experiment_log_dir+'/ckp_last.pt'))
 
             
 def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl,arch, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
@@ -123,9 +123,10 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
         data_arr = np.array([])
         #might need to see this, no enumerate
         #issue
-
+        # print(val_dl.shape)
         for data_t, labels, aug_t, data_f, aug_f in val_dl:
         #issue over
+            print("hi")
             #data format
             data_t, aug_t = data_t.float(), aug_t.float()
             data_f, aug_f = data_f.float(), aug_f.float()

@@ -20,9 +20,12 @@ parser.add_argument("--mode", type = str, required=True)
 parser.add_argument("--dataset", type=str, default="SleepEEG")
 parser.add_argument("--debug", type=bool, default=True)
 
-training_mode = parser.mode
-dataset = parser.dataset
-debug = parser.debug
+args, unknown = parser.parse_known_args()
+
+
+training_mode = args.mode
+dataset = args.dataset
+debug = args.debug
 
 
 
