@@ -45,6 +45,7 @@ os.makedirs(experiment_log_dir, exist_ok=True)
 parameters = {
     "SleepEEG": Parameter(128, 60, 5, 178, "SleepEEG"),
     "Epilepsy": Parameter(128, 60, 2, 178, "Epilepsy"),
+    "Gesture": Parameter(128, 60, 8, 178, "Gesture")
     }
 
 
