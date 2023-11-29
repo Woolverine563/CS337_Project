@@ -1,17 +1,26 @@
-import torch
 import numpy as np
-def Time_Augmentation(data):
-    sigma = 0.5
-    segments = 5
-    augmented_data = torch.zeros(data.shape)
-    for i, x in enumerate(data):
-        aug_choice = np.random.randint(0, 3)
-        if aug_choice == 0:
-            augmented_data[i] = x + torch.random.normal(loc=0., scale=sigma, shape=data.shape)
-        elif aug_choice == 1:
-            splits = np.array_split(np.arange(x.shape[2]), segments)
-            warp = np.concatenate(np.random.permutation(splits)).ravel()
-            x[i] = x[0, warp]
-        else:
-            
-        
+import torch
+
+def one_hot_encoding(x):
+    X = [int(elem) for elem in x]
+    total_num = np.max(X) + 1
+    return np.eyes(total_num)[X]
+
+def jitter(sample, jitter_ratio):
+    return sample + np.random.normal(loc = 0, scale = jitter_ratio, size = sample.shape)
+
+def DataTransform_TD(sample, jitter_ratio):
+    return jitter(sample, jitter_ratio)
+
+def rem_frq(sample, perturb_ratio):
+    return sample * ((torch.FloatTensor(sample.shape).uniform_() > perturb_ratio).to(sample.device))
+
+def add_frq(sample, perturb_ratio):
+    mask = ((torch.FloatTensor(sample.shape).uniform_() > 1 - perturb_ratio).to(sample.device))
+    perturb = torch.rand(mask.shape)*(sample.max()*0.1)
+    return sample + mask*perturb
+
+def DataTransform_FD(sample, perturb_ratio = 0.1):
+    return rem_frq(sample, perturb_ratio) + add_frq(sample, perturb_ratio)
+
+
