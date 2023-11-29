@@ -49,13 +49,12 @@ def PreTrainer(model, model_optimizer, train_dl,experiment_log_dir, num_epochs =
         #printing
         print(f"Epoch: {epoch}, loss = {torch.tensor(epoch_loss).mean().item()}")
 
-    os.makedirs(os.path.join(experiment_log_dir, "saved_models"), exist_ok=True)
     chkpoint = {'model_state_dict': model.state_dict()}
-    torch.save(chkpoint, os.path.join(experiment_log_dir, "saved_models", f'ckp_last.pt'))
+    torch.save(chkpoint, os.path.join(experiment_log_dir, "saved_models", 'ckp_last.pt'))
     print('Pretrained model is stored at folder:{}'.format(experiment_log_dir+'saved_models'+'ckp_last.pt'))
 
             
-def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
+def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl,arch, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(model_optimizer, 'min')
 
@@ -67,20 +66,19 @@ def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, t
 
         #storing best model
         scheduler.step(valid_loss)
-        arch = 'sleepedf2eplipsy'
         if len(f1_scores) == 0 or F1 > max(f1_scores):
             print('update fine-tuned model')
-            os.makedirs('experiments_logs/finetunemodel/', exist_ok=True)
-            torch.save(model.state_dict(), 'experiments_logs/finetunemodel/' + arch + '_model.pt')
-            torch.save(classifier.state_dict(), 'experiments_logs/finetunemodel/' + arch + '_classifier.pt')
+            os.makedirs('saved_models/finetunemodel/', exist_ok=True)
+            torch.save(model.state_dict(), 'saved_models/finetunemodel/' + arch + '_model.pt')
+            torch.save(classifier.state_dict(), 'saved_models/finetunemodel/' + arch + '_classifier.pt')
         f1_scores.append(F1)
         #not loading model always
         #not running knn always
         #printing diff test
 
     #evaluation on test set
-    model.load_state_dict(torch.load('experiments_logs/finetunemodel/' + arch + '_model.pt'))
-    classifier.load_state_dict(torch.load('experiments_logs/finetunemodel/' + arch + '_classifier.pt'))
+    model.load_state_dict(torch.load('saved_models/finetunemodel/' + arch + '_model.pt'))
+    classifier.load_state_dict(torch.load('saved_models/finetunemodel/' + arch + '_classifier.pt'))
     data_test, labels_test, performance = model_test(model,classifier, test_dl)    
     
     print('Best Testing Performance: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f '

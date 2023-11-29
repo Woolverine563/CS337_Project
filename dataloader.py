@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 import os
 import numpy as np
-from augmentations1 import DataTransform_FD, DataTransform_TD
+from augmentations import DataTransform_FD, DataTransform_TD
 import torch.fft as fft
 
 class Load_Dataset(Dataset):
