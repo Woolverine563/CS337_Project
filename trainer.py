@@ -15,7 +15,7 @@ def one_hot_encoding(X):
     return b
 
 
-def PreTrainer(model, model_optimizer, train_dl,experiment_log_dir, num_epochs = 40, tau = 0.2, lam = 1/6):
+def PreTrainer(model, model_optimizer, train_dl, experiment_log_dir, num_epochs = 40, tau = 0.2, lam = 1/6):
 
     for epoch in range(num_epochs):
         epoch_loss = []
@@ -54,7 +54,7 @@ def PreTrainer(model, model_optimizer, train_dl,experiment_log_dir, num_epochs =
     print('Pretrained model is stored at folder:{}'.format(experiment_log_dir+'/ckp_last.pt'))
 
             
-def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl,arch, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
+def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, test_dl, arch, num_epochs = 40, tau = 0.2, lam = 1/21, mu = 10/21):
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(model_optimizer, 'min')
 
@@ -67,45 +67,47 @@ def FineTuner(model,model_optimizer, val_dl, classifier, classifier_optimizer, t
         #storing best model
         scheduler.step(valid_loss)
         if len(f1_scores) == 0 or F1 > max(f1_scores):
-            print('update fine-tuned model')
-            os.makedirs('saved_models/finetunemodel/', exist_ok=True)
-            torch.save(model.state_dict(), 'saved_models/finetunemodel/' + arch + '_model.pt')
-            torch.save(classifier.state_dict(), 'saved_models/finetunemodel/' + arch + '_classifier.pt')
+            print('Updating fine-tuned model!')
+            os.makedirs('saved_models/fine_tune_seed_42/', exist_ok=True)
+            torch.save(model.state_dict(), 'saved_models/fine_tune_seed_42/' + arch + '_model.pt')
+            torch.save(classifier.state_dict(), 'saved_models/fine_tune_seed_42/' + arch + '_classifier.pt')
         f1_scores.append(F1)
         #not loading model always
         #not running knn always
         #printing diff test
 
     #evaluation on test set
-    model.load_state_dict(torch.load('saved_models/finetunemodel/' + arch + '_model.pt'))
-    classifier.load_state_dict(torch.load('saved_models/finetunemodel/' + arch + '_classifier.pt'))
-    data_test, labels_test, performance = model_test(model,classifier, test_dl)    
+    model.load_state_dict(torch.load('saved_models/fine_tune_seed_42/' + arch + '_model.pt'))
+    classifier.load_state_dict(torch.load('saved_models/fine_tune_seed_42/' + arch + '_classifier.pt'))
+    data_test, labels_test, performance = model_test(model, classifier, test_dl)    
     
+    print('---------------------------------------------------------\n')
     print('Best Testing Performance: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f '
               '| AUPRC=%.4f' % (performance[0], performance[1], performance[2], performance[3],
                                 performance[4], performance[5]))
+    print('\n---------------------------------------------------------')
     
     """Use KNN as another classifier; it's an alternation of the MLP classifier in function model_test. 
     Experiments show KNN and MLP may work differently in different settings, so here we provide both. """
     # train classifier: KNN
-    neigh = KNeighborsClassifier(n_neighbors=5)
-    neigh.fit(data_finetune, labels_finetune)
-    # print('KNN finetune acc:', knn_acc_train)
-    knn_test = data_test.detach().cpu().numpy()
+    # neigh = KNeighborsClassifier(n_neighbors=5)
+    # neigh.fit(data_finetune, labels_finetune)
+    # # print('KNN finetune acc:', knn_acc_train)
+    # knn_test = data_test.detach().cpu().numpy()
 
-    knn_result = neigh.predict(knn_test)
-    knn_result_score = neigh.predict_proba(knn_test)
-    one_hot_label_test = one_hot_encoding(labels_test)
-    # print(classification_report(label_test, knn_result, digits=4))
-    # print(confusion_matrix(label_test, knn_result))
-    knn_acc = accuracy_score(labels_test, knn_result)
-    precision = precision_score(labels_test, knn_result, average='macro', )
-    recall = recall_score(labels_test, knn_result, average='macro', )
-    F1 = f1_score(labels_test, knn_result, average='macro')
-    auc = roc_auc_score(one_hot_label_test, knn_result_score, average="macro", multi_class="ovr")
-    prc = average_precision_score(one_hot_label_test, knn_result_score, average="macro")
-    print('KNN Testing: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f | AUPRC=%.4f'%
-            (knn_acc, precision, recall, F1, auc, prc))
+    # knn_result = neigh.predict(knn_test)
+    # knn_result_score = neigh.predict_proba(knn_test)
+    # one_hot_label_test = one_hot_encoding(labels_test)
+    # # print(classification_report(label_test, knn_result, digits=4))
+    # # print(confusion_matrix(label_test, knn_result))
+    # knn_acc = accuracy_score(labels_test, knn_result)
+    # precision = precision_score(labels_test, knn_result, average='macro', )
+    # recall = recall_score(labels_test, knn_result, average='macro', )
+    # F1 = f1_score(labels_test, knn_result, average='macro')
+    # auc = roc_auc_score(one_hot_label_test, knn_result_score, average="macro", multi_class="ovr")
+    # prc = average_precision_score(one_hot_label_test, knn_result_score, average="macro")
+    # print('KNN Testing: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUPRC=%.4f'%
+    #         (knn_acc, precision, recall, F1, prc))
 
 def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, tau, lam, mu):
         #model_finetune
@@ -126,7 +128,6 @@ def finetune(model, model_optimizer, classifier, classifier_optimizer, val_dl, t
         # print(val_dl.shape)
         for data_t, labels, aug_t, data_f, aug_f in val_dl:
         #issue over
-            print("hi")
             #data format
             data_t, aug_t = data_t.float(), aug_t.float()
             data_f, aug_f = data_f.float(), aug_f.float()
@@ -233,6 +234,7 @@ def model_test(model, classifier, test_dl):
                 auc = roc_auc_score(onehot_label.detach().cpu().numpy(), pred_numpy,average="macro", multi_class="ovr")
             except:
                 auc = np.float(0)
+            # pred_numpy = np.argmax(pred_numpy, axis=1)
             prc = average_precision_score(onehot_label.detach().cpu().numpy(), pred_numpy, average="macro")
             pred_numpy = np.argmax(pred_numpy, axis=1)
 
@@ -255,7 +257,7 @@ def model_test(model, classifier, test_dl):
     total_prc = torch.tensor(total_prc).mean()
 
     performance = [acc * 100, precision * 100, recall * 100, F1 * 100, total_auc * 100, total_prc * 100]
-    print('MLP Testing: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f | AUPRC=%.4f'
-          % (acc*100, precision * 100, recall * 100, F1 * 100, total_auc*100, total_prc*100))
+    # print('MLP Testing: Acc=%.4f| Precision = %.4f | Recall = %.4f | F1 = %.4f | AUROC= %.4f | AUPRC=%.4f'
+    #       % (acc*100, precision * 100, recall * 100, F1 * 100, total_auc*100, total_prc*100))
     data_all = torch.concat(tuple(data_all))
     return data_all, labels_numpy_all, performance

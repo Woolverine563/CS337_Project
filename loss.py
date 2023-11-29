@@ -37,7 +37,12 @@ class ContrastiveLoss(nn.Module):
         logits = torch.cat((numerators, denominators), dim=1)/self.tau
 
         #improvable -logx -x
-        #cross_entropy_loss
-        loss = self.cross_entropy_loss(logits, torch.zeros(2*self.batch_size).long())/2*self.batch_size
+
+        onehot_label = torch.cat((torch.ones(2 * self.batch_size, 1),torch.zeros(2 * self.batch_size, denominators.shape[-1])),dim=-1).long()
+        # Add poly loss
+        pt = torch.mean(onehot_label* torch.nn.functional.softmax(logits,dim=-1))
+        epsilon = self.batch_size
+        # loss = self.cross_entropy_loss(logits, torch.zeros(2*self.batch_size).long())/2*self.batch_size
+        loss = self.cross_entropy_loss(logits, torch.zeros(2*self.batch_size).long())/2*self.batch_size + epsilon * (1/self.batch_size - pt)
         #improvable over
         return loss

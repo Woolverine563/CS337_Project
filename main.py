@@ -37,7 +37,7 @@ os.makedirs(experiment_log_dir, exist_ok=True)
 
 
 parameters = {
-    "SleepEEG": Parameter(128, 60, 2, 178, "SleepEEG"),
+    "SleepEEG": Parameter(128, 60, 5, 178, "SleepEEG"),
     "Epilepsy": Parameter(128, 60, 2, 178, "Epilepsy"),
     }
 
@@ -69,6 +69,6 @@ elif training_mode == "fine_tune":
     chkpoint = torch.load(load_from)
     pretrained_dict = chkpoint["model_state_dict"]
     TFC_model.load_state_dict(pretrained_dict)
-    FineTuner(TFC_model, TFC_optimizer,valid_dl, classifier, classifier_optimizer,test_dl,"SleepEEG2"+parameters[dataset].name)
+    FineTuner(TFC_model, TFC_optimizer, valid_dl, classifier, classifier_optimizer, test_dl, "SleepEEG2"+parameters[dataset].name)
 else:
     print("invalid mode, try again")

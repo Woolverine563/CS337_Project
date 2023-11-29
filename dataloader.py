@@ -11,33 +11,43 @@ class Load_Dataset(Dataset):
     def __init__(self, dataset, mode, target_dataset_size, subset = True):
         super(Load_Dataset, self).__init__()
         self.training_mode = mode
-        X_train = dataset["samples"][:10*128]
-        y_train = dataset["labels"][:10*128]
+        X_train = dataset["samples"]
+        y_train = dataset["labels"]
         # shuffle
         data = list(zip(X_train, y_train))
         np.random.shuffle(data)
         X_train, y_train = zip(*data)
         X_train, y_train = torch.stack(list(X_train), dim=0), torch.stack(list(y_train), dim=0)
 
-        self.x_data = X_train
-        self.y_data = y_train
+        if len(X_train.shape) < 3:
+            X_train = X_train.unsqueeze(2)
 
-        """Transfer x_data to Frequency Domain. If use fft.fft, the output has the same shape; if use fft.rfft, 
-        the output shape is half of the time window."""
-
-        self.x_data_f = fft.fft(self.x_data).abs()
-        self.len = X_train.shape[0]
+        if X_train.shape.index(min(X_train.shape)) != 1:  # make sure the Channels in second dim
+            X_train = X_train.permute(0, 2, 1)
 
         """Align the TS length between source and target datasets"""
         X_train = X_train[:, :1, :178] # take the first 178 samples
 
         """Subset for debugging"""
         if subset == True:
-            subset_size = target_dataset_size * 10 #30 #7 # 60*1
+            subset_size = target_dataset_size * 30 #30 #7 # 60*1
             """if the dimension is larger than 178, take the first 178 dimensions. If multiple channels, take the first channel"""
             X_train = X_train[:subset_size]
             y_train = y_train[:subset_size]
             # print('Using subset for debugging, the datasize is:', y_train.shape[0])
+
+        if isinstance(X_train, np.ndarray):
+            self.x_data = torch.from_numpy(X_train)
+            self.y_data = torch.from_numpy(y_train).long()
+        else:
+            self.x_data = X_train
+            self.y_data = y_train
+
+        """Transfer x_data to Frequency Domain. If use fft.fft, the output has the same shape; if use fft.rfft, 
+        the output shape is half of the time window."""
+        
+        self.x_data_f = fft.fft(self.x_data).abs()
+        self.len = X_train.shape[0]
 
         """Augmentation"""
         if self.training_mode == "pre_train":  # no need to apply Augmentations in other modes
@@ -58,7 +68,7 @@ class Load_Dataset(Dataset):
 
 def generate_dataloaders(data_path, mode, batch_size, target_batch_size, subset = True):
     train_dataset = torch.load(os.path.join(data_path, "train.pt"))
-    val_dataset = torch.load(os.path.join(data_path, "val.pt")) 
+    val_dataset = torch.load(os.path.join(data_path, "train.pt")) 
     test_dataset = torch.load(os.path.join(data_path, "test.pt")) 
 
     train_dataset = Load_Dataset(train_dataset, mode, target_dataset_size=batch_size, subset=subset)
